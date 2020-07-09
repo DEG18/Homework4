@@ -39,6 +39,7 @@ startEl.addEventListener("click", function () {
 
 function quesFlow(i) {
   if (i < questions.length) {
+    //assign buttons values
     queEl.innerHTML = questions[i].q;
     ans1El.innerHTML = questions[i].a;
     ans2El.innerHTML = random[i];
@@ -46,6 +47,7 @@ function quesFlow(i) {
     ans4El.innerHTML = random[i + 2];
     var answer = questions[i].a;
     click(answer, i);
+    //clear statement to clear buttons value
   } else {
     final();
   }
@@ -60,6 +62,7 @@ function click(answer, i) {
     } else {
       console.log("you are wrong");
       quesFlow(i + 1);
+      //time-5sec
     }
   });
   ans2El.addEventListener("click", function () {
@@ -70,6 +73,7 @@ function click(answer, i) {
     } else {
       console.log("you are wrong");
       quesFlow(i + 1);
+      //time-5sec
     }
   });
   ans3El.addEventListener("click", function () {
@@ -80,6 +84,7 @@ function click(answer, i) {
     } else {
       console.log("you are wrong");
       quesFlow(i + 1);
+      //time-5sec
     }
   });
   ans4El.addEventListener("click", function () {
@@ -90,6 +95,7 @@ function click(answer, i) {
     } else {
       console.log("you are wrong");
       quesFlow(i + 1);
+      //time-5sec
     }
   });
 }
@@ -101,6 +107,9 @@ function setTime() {
     timeEl.textContent = "Time: " + secondsLeft;
     if (secondsLeft === 0) {
       clearInterval(timerInterval);
+      final();
     }
   }, 1000);
 }
+
+function final() {}
