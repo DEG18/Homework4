@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- google font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <title>Code Quiz</title>
+  </head>
+  <body>
+    <main class="container">
+      <div class="row">
+        <header class="head">
+          <div class="colum">
+            <h2 id="savescore">
+              <button class="buttondesign">
+                View Highscores
+              </button>
+            </h2>
+          </div>
+          <div class="colum">
+            <div class="text">
+              <h2 id="time">Time: 70</h2>
+            </div>
+          </div>
+        </header>
+      </div>
+      <div class="row">
+        <div class="bcloum">
+          <div id="homeinterface">
+            <div class="homecontainer">
+              <div class="hometitle">
+                Coding Quiz Challenge
+              </div>
+              <p class="homenote">
+                Try to answer the following questions within the time limit.
+                Keep in mind that incorrent answers will penalize your
+                score/time by ten seconds!
+              </p>
+            </div>
+            <div class="homebutton">
+              <button id="start">START</button>
+            </div>
+          </div>
+
+          <div class="Que">
+            <div id="questions"></div>
+            <div class="Quebox">
+              <div class="line">
+                <button id="choice1"></button>
+              </div>
+              <div class="line">
+                <button id="choice2"></button>
+              </div>
+              <div class="line">
+                <button id="choice3"></button>
+              </div>
+              <div class="line">
+                <button id="choice4"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

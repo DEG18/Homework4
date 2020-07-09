@@ -1,0 +1,126 @@
+html {
+  background-color: lightcoral;
+}
+
+.row {
+  width: 100%;
+  height: auto;
+}
+.head {
+  width: 100%;
+  height: 50px;
+  background-color: blanchedalmond;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+.colum {
+  width: 50%;
+  height: auto;
+  float: left;
+}
+
+.bcloum {
+  background-color: lightcyan;
+  margin: auto;
+  width: 50%;
+  height: 650px;
+}
+
+.text {
+  text-align: right;
+}
+
+.container {
+  width: 100%;
+  height: 700px;
+  background-color: lightblue;
+}
+
+.buttondesign {
+  color: -internal-light-dark-color(buttontext, rgb(170, 170, 170));
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 5px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: center;
+  align-items: flex-start;
+  cursor: default;
+  background-color: -internal-light-dark-color(
+    rgb(239, 239, 239),
+    rgb(74, 74, 74)
+  );
+  box-sizing: border-box;
+  margin: 0em;
+  font: 400 13.3333px "Source Sans Pro", sans-serif;
+  padding: 1px 6px;
+  border-width: 0px;
+  border-style: outset;
+  background-color: transparent;
+  border-image: initial;
+  border-radius: 50px;
+  font-size: 25px;
+}
+
+.homebutton {
+  text-align: center;
+}
+
+#questions {
+  /* background-color: lightpink; */
+  height: 100%;
+}
+
+.homecontainer {
+  padding-top: 25%;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+.hometitle {
+  text-align: center;
+  font-weight: bold;
+  font-size: 40px;
+}
+
+.homenote {
+  text-align: center;
+  font-size: 25px;
+  padding: 20px;
+  line-height: 1.5em;
+}
+
+.Que {
+  padding-top: 25%;
+  display: none;
+  font-size: 30px;
+  font-family: "Source Sans Pro", sans-serif;
+  text-align: center;
+}
+
+.Quebox {
+  width: 25%;
+  margin-left: 25%;
+  height: 100%;
+}
+
+#start {
+  text-align: center;
+  border-radius: 50px;
+  border-style: none;
+  box-shadow: none;
+  color: black;
+  cursor: pointer;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 1em;
+  font-weight: 700;
+  line-height: 0;
+  padding: 20px;
+}
+
+.line {
+  width: auto;
+  margin-left: 20%;
+  float: left;
+  line-height: 2em;
+}
