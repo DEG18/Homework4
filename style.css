@@ -124,3 +124,7 @@ html {
   float: left;
   line-height: 2em;
 }
+
+.input {
+  display: none;
+}

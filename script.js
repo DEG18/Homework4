@@ -3,10 +3,12 @@ var queEl = document.getElementById("questions");
 var startEl = document.getElementById("start");
 var buttonbox = document.querySelector(".Que");
 var homeinterface = document.querySelector(".homecontainer");
-var ans1El = document.getElementById("choice1");
-var ans2El = document.getElementById("choice2");
-var ans3El = document.getElementById("choice3");
-var ans4El = document.getElementById("choice4");
+var inputbox = document.querySelector(".input");
+// var ans1El = document.getElementById("choice1");
+// var ans2El = document.getElementById("choice2");
+// var ans3El = document.getElementById("choice3");
+// var ans4El = document.getElementById("choice4");
+var choicesBox = document.querySelector(".Quebox");
 
 //Questions bank:
 var questions = [
@@ -27,80 +29,179 @@ var random = [
   "December 20, 2005",
   "September 4, 1977",
 ];
-var i = 0;
 
 startEl.addEventListener("click", function () {
   startEl.style.display = "none";
   homeinterface.style.display = "none";
   buttonbox.style.display = "block";
+  var i = 0;
   setTime();
   quesFlow(i);
 });
 
 function quesFlow(i) {
   if (i < questions.length) {
-    //assign buttons values
+    var button1 = document.createElement("button");
+    var button2 = document.createElement("button");
+    var button3 = document.createElement("button");
+    var button4 = document.createElement("button");
+    choicesBox.appendChild(button1);
+    choicesBox.appendChild(button2);
+    choicesBox.appendChild(button3);
+    choicesBox.appendChild(button4);
     queEl.innerHTML = questions[i].q;
-    ans1El.innerHTML = questions[i].a;
-    ans2El.innerHTML = random[i];
-    ans3El.innerHTML = random[i + 1];
-    ans4El.innerHTML = random[i + 2];
+    button1.innerHTML = questions[i].a;
+    button2.innerHTML = random[i];
+    button3.innerHTML = random[i + 1];
+    button4.innerHTML = random[i + 2];
     var answer = questions[i].a;
-    click(answer, i);
-    //clear statement to clear buttons value
+    // click(answer, i);
+    button1.addEventListener("click", function () {
+      var a = button1.textContent;
+      if (a === answer) {
+        console.log("you are right");
+        button1.remove();
+        button2.remove();
+        button3.remove();
+        button4.remove();
+        quesFlow(i + 1);
+      } else {
+        console.log("you are wrong");
+        button1.remove();
+        button2.remove();
+        button3.remove();
+        button4.remove();
+        quesFlow(i + 1);
+        //time-5sec
+      }
+    });
+    button2.addEventListener("click", function () {
+      var a = button2.textContent;
+      if (a === answer) {
+        console.log("you are right");
+        button1.remove();
+        button2.remove();
+        button3.remove();
+        button4.remove();
+        quesFlow(i + 1);
+      } else {
+        console.log("you are wrong");
+        button1.remove();
+        button2.remove();
+        button3.remove();
+        button4.remove();
+        quesFlow(i + 1);
+        //time-5sec
+      }
+    });
+    button3.addEventListener("click", function () {
+      var a = button3.textContent;
+      if (a === answer) {
+        console.log("you are right");
+        button1.remove();
+        button2.remove();
+        button3.remove();
+        button4.remove();
+        quesFlow(i + 1);
+      } else {
+        console.log("you are wrong");
+        button1.remove();
+        button2.remove();
+        button3.remove();
+        button4.remove();
+        quesFlow(i + 1);
+        //time-5sec
+      }
+    });
+    button4.addEventListener("click", function () {
+      var a = button4.textContent;
+      if (a === answer) {
+        console.log("you are right");
+        button1.remove();
+        button2.remove();
+        button3.remove();
+        button4.remove();
+        quesFlow(i + 1);
+      } else {
+        console.log("you are wrong");
+        button1.remove();
+        button2.remove();
+        button3.remove();
+        button4.remove();
+        quesFlow(i + 1);
+        //time-5sec
+      }
+    });
   } else {
     final();
   }
 }
 
-function click(answer, i) {
-  ans1El.addEventListener("click", function () {
-    var a = ans1El.textContent;
-    if (a === answer) {
-      console.log("you are right");
-      quesFlow(i + 1);
-    } else {
-      console.log("you are wrong");
-      quesFlow(i + 1);
-      //time-5sec
-    }
-  });
-  ans2El.addEventListener("click", function () {
-    var a = ans2El.textContent;
-    if (a === answer) {
-      console.log("you are right");
-      quesFlow(i + 1);
-    } else {
-      console.log("you are wrong");
-      quesFlow(i + 1);
-      //time-5sec
-    }
-  });
-  ans3El.addEventListener("click", function () {
-    var a = ans3El.textContent;
-    if (a === answer) {
-      console.log("you are right");
-      quesFlow(i + 1);
-    } else {
-      console.log("you are wrong");
-      quesFlow(i + 1);
-      //time-5sec
-    }
-  });
-  ans4El.addEventListener("click", function () {
-    var a = ans4El.textContent;
-    if (a === answer) {
-      console.log("you are right");
-      quesFlow(i + 1);
-    } else {
-      console.log("you are wrong");
-      quesFlow(i + 1);
-      //time-5sec
-    }
-  });
-}
+// function quesFlow(i) {
 
-var secondsLeft = 70;
+//   if (i < questions.length) {
+//     //assign buttons values
+//     queEl.innerHTML = questions[i].q;
+//     ans1El.innerHTML = questions[i].a;
+//     ans2El.innerHTML = random[i];
+//     ans3El.innerHTML = random[i + 1];
+//     ans4El.innerHTML = random[i + 2];
+//     var answer = questions[i].a;
+//     click(answer, i);
+//     //clear statement to clear buttons value
+//   } else {
+//     final();
+//   }
+// }
+
+// function click(answer, i) {
+//   button1.addEventListener("click", function () {
+//     var a = button1.textContent;
+//     if (a === answer) {
+//       console.log("you are right");
+//       quesFlow(i + 1);
+//     } else {
+//       console.log("you are wrong");
+//       quesFlow(i + 1);
+//       //time-5sec
+//     }
+//   });
+//   button2.addEventListener("click", function () {
+//     var a = button2.textContent;
+//     if (a === answer) {
+//       console.log("you are right");
+//       quesFlow(i + 1);
+//     } else {
+//       console.log("you are wrong");
+//       quesFlow(i + 1);
+//       //time-5sec
+//     }
+//   });
+//   button3.addEventListener("click", function () {
+//     var a = button3.textContent;
+//     if (a === answer) {
+//       console.log("you are right");
+//       quesFlow(i + 1);
+//     } else {
+//       console.log("you are wrong");
+//       quesFlow(i + 1);
+//       //time-5sec
+//     }
+//   });
+//   button4.addEventListener("click", function () {
+//     var a = button4.textContent;
+//     if (a === answer) {
+//       console.log("you are right");
+//       quesFlow(i + 1);
+//     } else {
+//       console.log("you are wrong");
+//       quesFlow(i + 1);
+//       //time-5sec
+//     }
+//   });
+// }
+
+var secondsLeft = 50;
 function setTime() {
   var timerInterval = setInterval(function () {
     secondsLeft--;
@@ -112,4 +213,7 @@ function setTime() {
   }, 1000);
 }
 
-function final() {}
+function final() {
+  buttonbox.style.display = "none";
+  inputbox.style.display = "block";
+}
