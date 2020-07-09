@@ -10,85 +10,82 @@ var ans4El = document.getElementById("choice4");
 
 //Questions bank:
 var questions = [
-  { q: "Q1: 1+1=?", a: "2" },
-  { q: "Q2: 2+2=?", a: "4" },
+  { q: "Q1: When was Google founded? ", a: "September 4, 1998" },
+  { q: "Q2: When was Apple founded?", a: "April 1, 1976" },
+  { q: "Q3: When was Amazon founded?", a: "July 5, 1994" },
+  { q: "Q4: When was Netflix founded?", a: "August 29, 1997" },
+  { q: "Q5: When was Yahoo founded?", a: "January 1994" },
 ];
 
-var random = ["5", "8", "9", "10"];
+var random = [
+  "September 4, 1977",
+  "March 1, 2000",
+  "August 1, 1996",
+  "May 1, 1986",
+  "April 10, 1966",
+  "January 18, 2019",
+  "December 20, 2005",
+  "September 4, 1977",
+];
+var i = 0;
 
 startEl.addEventListener("click", function () {
   startEl.style.display = "none";
   homeinterface.style.display = "none";
   buttonbox.style.display = "block";
   //   setTime();
-  Quesflow();
+  quesFlow(i);
 });
 
-function Quesflow() {
-  for (var i = 0; i < questions.length; i) {
-    queEl.innerHTML = questions[i].q;
-    ans1El.innerHTML = questions[i].a;
-    ans2El.innerHTML = random[i];
-    ans3El.innerHTML = random[i + 1];
-    ans4El.innerHTML = random[i + 2];
-    var answer = questions[i].a;
-    // console.log(typeof answer);
-    // console.log(typeof ans1El.innerHTML);
-    // console.log(typeof ans1El.textContent);
-    // console.log(answer);
-    // console.log(ans1El.innerHTML);
-    // console.log(ans1El.textContent);
-    var check = parseInt(click(answer));
-    console.log(typeof check);
-    if ((check = 1)) {
-      i++;
-    } else {
-      //   i++;
-    }
-  }
+function quesFlow(i) {
+  queEl.innerHTML = questions[i].q;
+  ans1El.innerHTML = questions[i].a;
+  ans2El.innerHTML = random[i];
+  ans3El.innerHTML = random[i + 1];
+  ans4El.innerHTML = random[i + 2];
+  var answer = questions[i].a;
+  click(answer);
 }
 
 function click(answer) {
   ans1El.addEventListener("click", function () {
     var a = ans1El.textContent;
-    console.log(a);
-    console.log(answer);
     if (a === answer) {
       console.log("you are right");
-      return 1;
+      quesFlow(i + 1);
     } else {
       console.log("you are wrong");
-      return 0;
+      quesFlow(i + 1);
     }
   });
   ans2El.addEventListener("click", function () {
     var a = ans2El.textContent;
     if (a === answer) {
       console.log("you are right");
-      return 1;
+      quesFlow(i + 1);
     } else {
       console.log("you are wrong");
-      return 0;
+      quesFlow(i + 1);
     }
   });
   ans3El.addEventListener("click", function () {
     var a = ans3El.textContent;
     if (a === answer) {
       console.log("you are right");
-      return 1;
+      quesFlow(i + 1);
     } else {
       console.log("you are wrong");
-      return 0;
+      quesFlow(i + 1);
     }
   });
   ans4El.addEventListener("click", function () {
     var a = ans4El.textContent;
     if (a === answer) {
       console.log("you are right");
-      return 1;
+      quesFlow(i + 1);
     } else {
       console.log("you are wrong");
-      return 0;
+      quesFlow(i + 1);
     }
   });
 }
