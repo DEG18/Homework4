@@ -4,11 +4,14 @@ var startEl = document.getElementById("start");
 var buttonbox = document.querySelector(".Que");
 var homeinterface = document.querySelector(".homecontainer");
 var inputbox = document.querySelector(".inputinterface");
+var submitbtn = document.getElementById("submitbtn");
+var scoreinterface = document.getElementById("highscoresinterface");
 // var ans1El = document.getElementById("choice1");
 // var ans2El = document.getElementById("choice2");
 // var ans3El = document.getElementById("choice3");
 // var ans4El = document.getElementById("choice4");
 var choicesBox = document.querySelector(".Quebox");
+var scorelist = []; //create an empty score array use for store scores
 
 //Questions bank:
 var questions = [
@@ -18,7 +21,7 @@ var questions = [
   { q: "Q4: When was Netflix founded?", a: "August 29, 1997" },
   { q: "Q5: When was Yahoo founded?", a: "January 1994" },
 ];
-
+//other random incorrect choice
 var random = [
   "September 4, 1977",
   "March 1, 2000",
@@ -30,15 +33,17 @@ var random = [
   "September 4, 1977",
 ];
 
+//star button clicked start quiz
 startEl.addEventListener("click", function () {
   startEl.style.display = "none";
   homeinterface.style.display = "none";
   buttonbox.style.display = "block";
   var i = 0;
-  setTime();
-  quesFlow(i);
+  setTime(); //call timer function to start
+  quesFlow(i); //pass variable i=o to function quesFlow to start
 });
 
+//go through each questions and check answer, add 1 to i, until i<questions
 function quesFlow(i) {
   if (i < questions.length) {
     var button1 = document.createElement("button");
@@ -137,70 +142,7 @@ function quesFlow(i) {
   }
 }
 
-// function quesFlow(i) {
-
-//   if (i < questions.length) {
-//     //assign buttons values
-//     queEl.innerHTML = questions[i].q;
-//     ans1El.innerHTML = questions[i].a;
-//     ans2El.innerHTML = random[i];
-//     ans3El.innerHTML = random[i + 1];
-//     ans4El.innerHTML = random[i + 2];
-//     var answer = questions[i].a;
-//     click(answer, i);
-//     //clear statement to clear buttons value
-//   } else {
-//     final();
-//   }
-// }
-
-// function click(answer, i) {
-//   button1.addEventListener("click", function () {
-//     var a = button1.textContent;
-//     if (a === answer) {
-//       console.log("you are right");
-//       quesFlow(i + 1);
-//     } else {
-//       console.log("you are wrong");
-//       quesFlow(i + 1);
-//       //time-5sec
-//     }
-//   });
-//   button2.addEventListener("click", function () {
-//     var a = button2.textContent;
-//     if (a === answer) {
-//       console.log("you are right");
-//       quesFlow(i + 1);
-//     } else {
-//       console.log("you are wrong");
-//       quesFlow(i + 1);
-//       //time-5sec
-//     }
-//   });
-//   button3.addEventListener("click", function () {
-//     var a = button3.textContent;
-//     if (a === answer) {
-//       console.log("you are right");
-//       quesFlow(i + 1);
-//     } else {
-//       console.log("you are wrong");
-//       quesFlow(i + 1);
-//       //time-5sec
-//     }
-//   });
-//   button4.addEventListener("click", function () {
-//     var a = button4.textContent;
-//     if (a === answer) {
-//       console.log("you are right");
-//       quesFlow(i + 1);
-//     } else {
-//       console.log("you are wrong");
-//       quesFlow(i + 1);
-//       //time-5sec
-//     }
-//   });
-// }
-
+//timer function count down time
 var secondsLeft = 50;
 function setTime() {
   var timerInterval = setInterval(function () {
@@ -213,7 +155,14 @@ function setTime() {
   }, 1000);
 }
 
+//to display user input space
 function final() {
   buttonbox.style.display = "none";
   inputbox.style.display = "block";
 }
+
+//after user input submit, it will display final scores
+submitbtn.addEventListener("click", function () {
+  inputbox.style.display = "none";
+  scoreinterface.style.display = "block";
+});

@@ -2,6 +2,33 @@ html {
   background-color: lightcoral;
 }
 
+button {
+  color: -internal-light-dark-color(buttontext, rgb(170, 170, 170));
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 5px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: center;
+  align-items: flex-start;
+  cursor: default;
+  background-color: -internal-light-dark-color(
+    rgb(239, 239, 239),
+    rgb(74, 74, 74)
+  );
+  box-sizing: border-box;
+  margin: 0em;
+  font: 400 13.3333px "Source Sans Pro", sans-serif;
+  padding: 1px 10px;
+  border-width: 0px;
+  border-style: outset;
+  background-color: blanchedalmond;
+  border-image: initial;
+  border-radius: 50px;
+  font-size: 25px;
+}
+
 .row {
   width: 100%;
   height: auto;
@@ -105,17 +132,30 @@ html {
 }
 
 #start {
+  color: -internal-light-dark-color(buttontext, rgb(170, 170, 170));
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 5px;
+  text-shadow: none;
+  display: inline-block;
   text-align: center;
+  align-items: flex-start;
+  cursor: default;
+  background-color: -internal-light-dark-color(
+    rgb(239, 239, 239),
+    rgb(74, 74, 74)
+  );
+  box-sizing: border-box;
+  margin: 0em;
+  font: 400 13.3333px "Source Sans Pro", sans-serif;
+  padding: 1px 10px;
+  border-width: 0px;
+  border-style: outset;
+  background-color: blanchedalmond;
+  border-image: initial;
   border-radius: 50px;
-  border-style: none;
-  box-shadow: none;
-  color: black;
-  cursor: pointer;
-  font-family: "Source Sans Pro", sans-serif;
-  font-size: 1em;
-  font-weight: 700;
-  line-height: 0;
-  padding: 20px;
+  font-size: 25px;
 }
 
 .line {
@@ -131,6 +171,7 @@ html {
   margin: auto;
   width: 70%;
   height: 650px;
+  font-size: 30px;
 }
 
 #input-firstline {
@@ -178,4 +219,10 @@ input {
   border-image: initial;
   border-radius: 50px;
   font-size: 25px;
+}
+
+#highscoresinterface {
+  display: none;
+  font-size: 30px;
+  font-family: "Source Sans Pro", sans-serif;
 }

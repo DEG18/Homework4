@@ -50,38 +50,34 @@
 
           <div class="Que">
             <div id="questions"></div>
-            <div class="Quebox">
-              <!-- <div class="line">
-                <button id="choice1"></button>
-              </div>
-              <div class="line">
-                <button id="choice2"></button>
-              </div>
-              <div class="line">
-                <button id="choice3"></button>
-              </div>
-              <div class="line">
-                <button id="choice4"></button>
-              </div> -->
-            </div>
+            <div class="Quebox"></div>
           </div>
 
           <div class="inputinterface">
             <!-- <div id="input-firstline">CONGRATULATIONS!!!</div> -->
             <label id="input-firstline" for="input">CONGRATULATIONS</label>
-            <div id="score"></div>
+            <!-- <div id="score"></div> -->
+            <p>Your final score is: <span id="score-count">0</span></p>
             <div id="initials">
               Enter initials <input type="text" /><button
                 type="submit"
                 value="Submit"
                 class="buttondesign2"
+                id="submitbtn"
               >
                 Submit
               </button>
             </div>
           </div>
 
-          <div id="highscoresinterface"></div>
+          <div id="highscoresinterface">
+            <div id="texthighscores">
+              Highscores
+            </div>
+            <ul id="score-list"></ul>
+            <button class="buttondesign2">Go Back</button>
+            <button class="buttondesign2">Clear Highscores</button>
+          </div>
         </div>
       </div>
     </main>
