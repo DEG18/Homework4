@@ -17,7 +17,7 @@
         <header class="head">
           <div class="colum">
             <h2 id="savescore">
-              <button class="buttondesign">
+              <button class="buttondesign1">
                 View Highscores
               </button>
             </h2>
@@ -29,6 +29,7 @@
           </div>
         </header>
       </div>
+
       <div class="row">
         <div class="bcloum">
           <div class="homeinterface">
@@ -65,9 +66,22 @@
             </div>
           </div>
 
-          <div class="input">
-            <input type="text" placeholder="Enter your name" />
+          <div class="inputinterface">
+            <!-- <div id="input-firstline">CONGRATULATIONS!!!</div> -->
+            <label id="input-firstline" for="input">CONGRATULATIONS</label>
+            <div id="score"></div>
+            <div id="initials">
+              Enter initials <input type="text" /><button
+                type="submit"
+                value="Submit"
+                class="buttondesign2"
+              >
+                Submit
+              </button>
+            </div>
           </div>
+
+          <div id="highscoresinterface"></div>
         </div>
       </div>
     </main>

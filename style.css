@@ -36,7 +36,7 @@ html {
   background-color: lightblue;
 }
 
-.buttondesign {
+.buttondesign1 {
   color: -internal-light-dark-color(buttontext, rgb(170, 170, 170));
   letter-spacing: normal;
   word-spacing: normal;
@@ -125,6 +125,57 @@ html {
   line-height: 2em;
 }
 
-.input {
+.inputinterface {
+  font-family: "Source Sans Pro", sans-serif;
   display: none;
+  margin: auto;
+  width: 70%;
+  height: 650px;
+}
+
+#input-firstline {
+  font-weight: 900;
+  text-align: center;
+  font-size: 30px;
+  margin-top: 10%;
+}
+
+input {
+  height: 25px;
+  width: 50%;
+  padding: 5px;
+  margin-top: 0px;
+  font-size: 30px;
+  border: none;
+}
+
+#initials {
+  font-size: 30px;
+}
+
+.buttondesign2 {
+  color: -internal-light-dark-color(buttontext, rgb(170, 170, 170));
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 5px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: center;
+  align-items: flex-start;
+  cursor: default;
+  background-color: -internal-light-dark-color(
+    rgb(239, 239, 239),
+    rgb(74, 74, 74)
+  );
+  box-sizing: border-box;
+  margin: 0em;
+  font: 400 13.3333px "Source Sans Pro", sans-serif;
+  padding: 1px 10px;
+  border-width: 0px;
+  border-style: outset;
+  background-color: blanchedalmond;
+  border-image: initial;
+  border-radius: 50px;
+  font-size: 25px;
 }
