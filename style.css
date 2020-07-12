@@ -46,11 +46,19 @@ button {
   float: left;
 }
 
+.acloum {
+  width: 50%;
+  height: 650px;
+  float: right;
+  position: fixed;
+}
 .bcloum {
   background-color: lightcyan;
   margin: auto;
   width: 50%;
   height: 650px;
+  float: left;
+  position: fixed;
 }
 
 .text {
