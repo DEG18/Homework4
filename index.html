@@ -57,9 +57,10 @@
             <!-- <div id="input-firstline">CONGRATULATIONS!!!</div> -->
             <label id="input-firstline" for="input">CONGRATULATIONS</label>
             <!-- <div id="score"></div> -->
-            <p>Your final score is: <span id="score-count">0</span></p>
+            <!-- <p>Your final score is: <span id="score-count"></span></p> -->
+            <div id="yourScore"></div>
             <div id="initials">
-              Enter initials <input type="text" /><button
+              Enter initials <input type="text" id="inputName" /><button
                 type="submit"
                 value="Submit"
                 class="buttondesign2"
@@ -75,8 +76,10 @@
               Highscores
             </div>
             <ul id="score-list"></ul>
-            <button class="buttondesign2">Go Back</button>
-            <button class="buttondesign2">Clear Highscores</button>
+            <button class="buttondesign2" id="backBtn">Go Back</button>
+            <button class="buttondesign2" id="clearBtn">
+              Clear Highscores
+            </button>
           </div>
         </div>
       </div>

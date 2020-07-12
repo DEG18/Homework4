@@ -2,16 +2,19 @@ var timeEl = document.getElementById("time");
 var queEl = document.getElementById("questions");
 var startEl = document.getElementById("start");
 var buttonbox = document.querySelector(".Que");
-var homeinterface = document.querySelector(".homecontainer");
+// var homeinterface = document.querySelector(".homecontainer");
+var homeinterface = document.querySelector(".homeinterface");
 var inputbox = document.querySelector(".inputinterface");
 var submitbtn = document.getElementById("submitbtn");
 var scoreinterface = document.getElementById("highscoresinterface");
-// var ans1El = document.getElementById("choice1");
-// var ans2El = document.getElementById("choice2");
-// var ans3El = document.getElementById("choice3");
-// var ans4El = document.getElementById("choice4");
+var inputName = document.getElementById("inputName");
+var scoreList = document.getElementById("score-list");
 var choicesBox = document.querySelector(".Quebox");
-var scorelist = []; //create an empty score array use for store scores
+var yourScore = document.getElementById("yourScore");
+// var scoreCount = document.getElementById("score-count");
+var scoreCount;
+var backBtn = document.getElementById("backBtn");
+var scoresArray = [];
 
 //Questions bank:
 var questions = [
@@ -35,11 +38,11 @@ var random = [
 
 //star button clicked start quiz
 startEl.addEventListener("click", function () {
-  startEl.style.display = "none";
+  // startEl.style.display = "none";
   homeinterface.style.display = "none";
   buttonbox.style.display = "block";
   var i = 0;
-  setTime(); //call timer function to start
+  setTime(50); //call timer function to start
   quesFlow(i); //pass variable i=o to function quesFlow to start
 });
 
@@ -143,11 +146,13 @@ function quesFlow(i) {
 }
 
 //timer function count down time
-var secondsLeft = 50;
-function setTime() {
+var timeArray = [];
+function setTime(i) {
+  var secondsLeft = i;
   var timerInterval = setInterval(function () {
     secondsLeft--;
     timeEl.textContent = "Time: " + secondsLeft;
+    timeArray.push(secondsLeft);
     if (secondsLeft === 0) {
       clearInterval(timerInterval);
       final();
@@ -157,12 +162,45 @@ function setTime() {
 
 //to display user input space
 function final() {
+  scoreCount = timeArray[timeArray.length - 1];
+  console.log(scoreCount);
+
+  // setTime(0);
   buttonbox.style.display = "none";
   inputbox.style.display = "block";
+  // yourScore.textContent = "Your final score is: " + `${scoreCount}`;
+  displayscore();
+  // get time from the setTime check if time is 0 or not
+}
+
+function displayscore() {
+  yourScore.textContent = "Your final score is: " + `${scoreCount}`;
 }
 
 //after user input submit, it will display final scores
 submitbtn.addEventListener("click", function () {
   inputbox.style.display = "none";
   scoreinterface.style.display = "block";
+  var name = inputName.value;
+  console.log(name);
+  scoresArray.push(name);
+  inputName.value = "";
+  console.log(scoresArray);
+  showScore();
+});
+
+function showScore() {
+  for (var i = 0; i < scoresArray.length; i++) {
+    var scoresOrder = scoresArray[i];
+    var li = document.createElement("li");
+    li.textContent = `${i + 1}` + ". " + scoresOrder + " - " + `${scoreCount}`;
+    li.setAttribute("data-index", i);
+    scoreList.appendChild(li);
+  }
+}
+
+backBtn.addEventListener("click", function () {
+  // startEl.style.display = "block";
+  homeinterface.style.display = "block";
+  scoreinterface.style.display = "none";
 });
