@@ -195,6 +195,7 @@ submitbtn.addEventListener("click", function () {
 });
 
 function showScore() {
+  scoreList.textContent = "";
   for (var i = 0; i < scoresArray.length; i++) {
     var scoresOrder = scoresArray[i];
     var li = document.createElement("li");
