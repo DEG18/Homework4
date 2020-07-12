@@ -49,6 +49,7 @@ startEl.addEventListener("click", function () {
   // startEl.style.display = "none";
   homeinterface.style.display = "none";
   buttonbox.style.display = "block";
+  viewScoreBtn.style.display = "none";
   var i = 0;
   setTime(50); //call timer function to start
   quesFlow(i); //pass variable i=o to function quesFlow to start
@@ -214,6 +215,8 @@ function final() {
 submitbtn.addEventListener("click", function () {
   inputbox.style.display = "none";
   scoreinterface.style.display = "block";
+  viewScoreBtn.style.display = "block";
+  point.textContent = "";
   var name = inputName.value;
   console.log(name);
   scoresArray.push(name);

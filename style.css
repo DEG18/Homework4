@@ -1,5 +1,5 @@
 html {
-  background-color: lightcoral;
+  background-color: lightblue;
 }
 
 button {
@@ -58,7 +58,7 @@ button {
   font-size: 40px;
 }
 .bcloum {
-  background-color: lightcyan;
+  background-color: lightblue;
   margin: auto;
   width: 50%;
   height: 650px;
@@ -259,6 +259,7 @@ li {
 
 .pointli {
   font-size: 30px;
+  background-color: lightblue;
 }
 
 li:before {
