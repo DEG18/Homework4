@@ -46,6 +46,8 @@ startEl.addEventListener("click", function () {
   quesFlow(i); //pass variable i=o to function quesFlow to start
 });
 
+var timeArray = [];
+
 //go through each questions and check answer, add 1 to i, until i<questions
 function quesFlow(i) {
   if (i < questions.length) {
@@ -146,10 +148,10 @@ function quesFlow(i) {
 }
 
 //timer function count down time
-var timeArray = [];
+
 function setTime(i) {
   var secondsLeft = i;
-  var timerInterval = setInterval(function () {
+  window.timerInterval = setInterval(function () {
     secondsLeft--;
     timeEl.textContent = "Time: " + secondsLeft;
     timeArray.push(secondsLeft);
@@ -164,17 +166,13 @@ function setTime(i) {
 function final() {
   scoreCount = timeArray[timeArray.length - 1];
   console.log(scoreCount);
-
-  // setTime(0);
+  clearInterval(timerInterval);
+  // timeEl.style.display = "none";
   buttonbox.style.display = "none";
   inputbox.style.display = "block";
-  // yourScore.textContent = "Your final score is: " + `${scoreCount}`;
-  displayscore();
-  // get time from the setTime check if time is 0 or not
-}
-
-function displayscore() {
   yourScore.textContent = "Your final score is: " + `${scoreCount}`;
+
+  // get time from the setTime check if time is 0 or not
 }
 
 //after user input submit, it will display final scores
@@ -203,4 +201,5 @@ backBtn.addEventListener("click", function () {
   // startEl.style.display = "block";
   homeinterface.style.display = "block";
   scoreinterface.style.display = "none";
+  timeEl.textContent = "Time: 50";
 });
