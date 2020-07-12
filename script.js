@@ -13,7 +13,7 @@ var yourScore = document.getElementById("yourScore");
 var viewScoreBtn = document.getElementById("viewscore");
 var backBtn = document.getElementById("backBtn");
 var clearBtn = document.getElementById("clearBtn");
-var rightORwrong = document.getElementById("rightorwrong");
+var point = document.getElementById("point");
 
 var scoreCount;
 var scoresArray = [];
@@ -82,7 +82,7 @@ function quesFlow(i) {
         button2.remove();
         button3.remove();
         button4.remove();
-        rightORwrong.textContent = "You are right!";
+        scoreBoard(1);
         quesFlow(i + 1);
       } else {
         console.log("you are wrong");
@@ -90,7 +90,7 @@ function quesFlow(i) {
         button2.remove();
         button3.remove();
         button4.remove();
-        rightORwrong.textContent = "You are wrong!";
+        scoreBoard(0);
         quesFlow(i + 1);
         //time-5sec
       }
@@ -103,7 +103,7 @@ function quesFlow(i) {
         button2.remove();
         button3.remove();
         button4.remove();
-        rightORwrong.textContent = "You are right!";
+        scoreBoard(1);
         quesFlow(i + 1);
       } else {
         console.log("you are wrong");
@@ -111,7 +111,7 @@ function quesFlow(i) {
         button2.remove();
         button3.remove();
         button4.remove();
-        rightORwrong.textContent = "You are wrong!";
+        scoreBoard(0);
         quesFlow(i + 1);
         //time-5sec
       }
@@ -124,8 +124,7 @@ function quesFlow(i) {
         button2.remove();
         button3.remove();
         button4.remove();
-
-        rightORwrong.textContent = "You are right!";
+        scoreBoard(1);
         quesFlow(i + 1);
       } else {
         console.log("you are wrong");
@@ -133,7 +132,7 @@ function quesFlow(i) {
         button2.remove();
         button3.remove();
         button4.remove();
-        rightORwrong.textContent = "You are wrong!";
+        scoreBoard(0);
         quesFlow(i + 1);
         //time-5sec
       }
@@ -146,7 +145,7 @@ function quesFlow(i) {
         button2.remove();
         button3.remove();
         button4.remove();
-        rightORwrong.textContent = "You are right!";
+        scoreBoard(1);
         quesFlow(i + 1);
       } else {
         console.log("you are wrong");
@@ -154,7 +153,7 @@ function quesFlow(i) {
         button2.remove();
         button3.remove();
         button4.remove();
-        rightORwrong.textContent = "You are wrong!";
+        scoreBoard(0);
         quesFlow(i + 1);
         //time-5sec
       }
@@ -177,6 +176,24 @@ function setTime(i) {
       final();
     }
   }, 1000);
+}
+
+//Score Board
+function scoreBoard(i) {
+  if (i === 1) {
+    // you are right
+    var li = document.createElement("li");
+    li.setAttribute("class", "pointli");
+    li.textContent = "You are right!";
+    point.appendChild(li);
+  }
+  if (i === 0) {
+    // you are wrong
+    var li = document.createElement("li");
+    li.setAttribute("class", "pointli");
+    li.textContent = "You are wrong!";
+    point.appendChild(li);
+  }
 }
 
 //to display user input space
