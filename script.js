@@ -11,6 +11,7 @@ var inputName = document.getElementById("inputName");
 var scoreList = document.getElementById("score-list");
 var choicesBox = document.querySelector(".Quebox");
 var yourScore = document.getElementById("yourScore");
+var viewScoreBtn = document.getElementById("viewscore");
 // var scoreCount = document.getElementById("score-count");
 var scoreCount;
 var backBtn = document.getElementById("backBtn");
@@ -35,6 +36,12 @@ var random = [
   "December 20, 2005",
   "September 4, 1977",
 ];
+viewScoreBtn.addEventListener("click", function () {
+  homeinterface.style.display = "none";
+  inputbox.style.display = "none";
+  buttonbox.style.display = "none";
+  scoreinterface.style.display = "block";
+});
 
 //star button clicked start quiz
 startEl.addEventListener("click", function () {
