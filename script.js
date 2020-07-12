@@ -16,7 +16,7 @@ var viewScoreBtn = document.getElementById("viewscore");
 var scoreCount;
 var backBtn = document.getElementById("backBtn");
 var scoresArray = [];
-
+var finalScorearray = [];
 //Questions bank:
 var questions = [
   { q: "Q1: When was Google founded? ", a: "September 4, 1998" },
@@ -173,6 +173,7 @@ function setTime(i) {
 function final() {
   scoreCount = timeArray[timeArray.length - 1];
   console.log(scoreCount);
+  finalScorearray.push(scoreCount);
   clearInterval(timerInterval);
   // timeEl.style.display = "none";
   buttonbox.style.display = "none";
@@ -199,7 +200,8 @@ function showScore() {
   for (var i = 0; i < scoresArray.length; i++) {
     var scoresOrder = scoresArray[i];
     var li = document.createElement("li");
-    li.textContent = `${i + 1}` + ". " + scoresOrder + " - " + `${scoreCount}`;
+    li.textContent =
+      `${i + 1}` + ". " + scoresOrder + " - " + `${finalScorearray[i]}`;
     li.setAttribute("data-index", i);
     scoreList.appendChild(li);
   }
