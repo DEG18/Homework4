@@ -93,6 +93,7 @@ function quesFlow(i) {
         button4.remove();
         scoreBoard(0);
         quesFlow(i + 1);
+        wrong();
         //time-5sec
       }
     });
@@ -114,7 +115,7 @@ function quesFlow(i) {
         button4.remove();
         scoreBoard(0);
         quesFlow(i + 1);
-        //time-5sec
+        wrong(); //time-5sec
       }
     });
     button3.addEventListener("click", function () {
@@ -135,7 +136,7 @@ function quesFlow(i) {
         button4.remove();
         scoreBoard(0);
         quesFlow(i + 1);
-        //time-5sec
+        wrong(); //time-5sec
       }
     });
     button4.addEventListener("click", function () {
@@ -156,7 +157,7 @@ function quesFlow(i) {
         button4.remove();
         scoreBoard(0);
         quesFlow(i + 1);
-        //time-5sec
+        wrong(); //time-5sec
       }
     });
   } else {
@@ -165,7 +166,6 @@ function quesFlow(i) {
 }
 
 //timer function count down time
-
 function setTime(i) {
   var secondsLeft = i;
   window.timerInterval = setInterval(function () {
@@ -179,7 +179,14 @@ function setTime(i) {
   }, 1000);
 }
 
-//Score Board
+function wrong() {
+  clearInterval(timerInterval);
+  var startPoint = timeArray[timeArray.length - 1];
+  var newSecondsleft = startPoint - 5;
+  setTime(newSecondsleft);
+}
+
+// Score Board to display each question right or wrong
 function scoreBoard(i) {
   if (i === 1) {
     // you are right
@@ -197,7 +204,7 @@ function scoreBoard(i) {
   }
 }
 
-//to display user input space
+// to display user input space
 function final() {
   scoreCount = timeArray[timeArray.length - 1];
   console.log(scoreCount);
@@ -211,7 +218,7 @@ function final() {
   // get time from the setTime check if time is 0 or not
 }
 
-//after user input submit, it will display final scores
+// after user input submit, it will display final scores
 submitbtn.addEventListener("click", function () {
   inputbox.style.display = "none";
   scoreinterface.style.display = "block";
@@ -225,6 +232,7 @@ submitbtn.addEventListener("click", function () {
   showScore();
 });
 
+// function to show the score list in the Score Page
 function showScore() {
   scoreList.textContent = "";
   for (var i = 0; i < scoresArray.length; i++) {
@@ -237,6 +245,7 @@ function showScore() {
   }
 }
 
+// function in Score Page to go back to the home page
 backBtn.addEventListener("click", function () {
   // startEl.style.display = "block";
   homeinterface.style.display = "block";
