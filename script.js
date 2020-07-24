@@ -295,7 +295,6 @@ viewScoreBtn.addEventListener("click", function () {
 
 // function in Score Page to go back to the home page
 backBtn.addEventListener("click", function () {
-  // startEl.style.display = "block";
   homeinterface.style.display = "block";
   scoreinterface.style.display = "none";
   timeEl.textContent = "Time: 50";
