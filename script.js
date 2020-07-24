@@ -14,10 +14,12 @@ var viewScoreBtn = document.getElementById("viewscore");
 var backBtn = document.getElementById("backBtn");
 var clearBtn = document.getElementById("clearBtn");
 var point = document.getElementById("point");
+var displayCong = document.querySelector(".congra");
 
 var scoreCount;
 var scoresArray = [];
 var finalScorearray = [];
+var localArray = [];
 //Questions bank:
 var questions = [
   { q: "Q1: When was Google founded? ", a: "September 4, 1998" },
@@ -37,16 +39,11 @@ var random = [
   "December 20, 2005",
   "September 4, 1977",
 ];
-viewScoreBtn.addEventListener("click", function () {
-  homeinterface.style.display = "none";
-  inputbox.style.display = "none";
-  buttonbox.style.display = "none";
-  scoreinterface.style.display = "block";
-});
 
 //star button clicked start quiz
 startEl.addEventListener("click", function () {
   // startEl.style.display = "none";
+  queEl.style.display = "block";
   homeinterface.style.display = "none";
   buttonbox.style.display = "block";
   viewScoreBtn.style.display = "none";
@@ -161,7 +158,17 @@ function quesFlow(i) {
       }
     });
   } else {
-    final();
+    queEl.style.display = "none";
+    displayCong.style.display = "block";
+    var sec = 2;
+    withintime = setInterval(function () {
+      sec--;
+      if (sec === 0) {
+        displayCong.style.display = "none";
+        clearInterval(timerInterval);
+        final();
+      }
+    }, 1000);
   }
 }
 
@@ -186,6 +193,20 @@ function wrong() {
   setTime(newSecondsleft);
 }
 
+// to display user input space
+function final() {
+  scoreCount = timeArray[timeArray.length - 1];
+  console.log(scoreCount);
+  finalScorearray.push(scoreCount);
+  clearInterval(timerInterval);
+  // timeEl.style.display = "none";
+  buttonbox.style.display = "none";
+  inputbox.style.display = "block";
+  yourScore.textContent = "Your final score is: " + `${scoreCount}`;
+
+  // get time from the setTime check if time is 0 or not
+}
+
 // Score Board to display each question right or wrong
 function scoreBoard(i) {
   if (i === 1) {
@@ -202,20 +223,6 @@ function scoreBoard(i) {
     li.textContent = "You are wrong!";
     point.appendChild(li);
   }
-}
-
-// to display user input space
-function final() {
-  scoreCount = timeArray[timeArray.length - 1];
-  console.log(scoreCount);
-  finalScorearray.push(scoreCount);
-  clearInterval(timerInterval);
-  // timeEl.style.display = "none";
-  buttonbox.style.display = "none";
-  inputbox.style.display = "block";
-  yourScore.textContent = "Your final score is: " + `${scoreCount}`;
-
-  // get time from the setTime check if time is 0 or not
 }
 
 // after user input submit, it will display final scores
@@ -235,15 +242,42 @@ submitbtn.addEventListener("click", function () {
 // function to show the score list in the Score Page
 function showScore() {
   scoreList.textContent = "";
+  localArray = [];
   for (var i = 0; i < scoresArray.length; i++) {
     var scoresOrder = scoresArray[i];
     var li = document.createElement("li");
     li.textContent =
       `${i + 1}` + ". " + scoresOrder + " - " + `${finalScorearray[i]}`;
+    localArray.push(
+      `${i + 1}` + ". " + scoresOrder + " - " + `${finalScorearray[i]}`
+    );
+    localStorage.removeItem("listArray");
+    localStorage.setItem("listArray", JSON.stringify(localArray));
     li.setAttribute("data-index", i);
     scoreList.appendChild(li);
   }
 }
+
+viewScoreBtn.addEventListener("click", function () {
+  homeinterface.style.display = "none";
+  inputbox.style.display = "none";
+  buttonbox.style.display = "none";
+  scoreinterface.style.display = "block";
+  scoreList.textContent = "";
+  if (localStorage.getItem("listArray") !== null) {
+    var x = JSON.parse(localStorage.getItem("listArray")).length;
+    console.log(x);
+    for (var p = 0; p < x; p++) {
+      var li = document.createElement("li");
+      var content = JSON.parse(localStorage.getItem("listArray"));
+      console.log(content);
+      li.textContent = content[p];
+      scoreList.appendChild(li);
+    }
+  } else {
+    scoreList.textContent = "";
+  }
+});
 
 // function in Score Page to go back to the home page
 backBtn.addEventListener("click", function () {
@@ -255,4 +289,6 @@ backBtn.addEventListener("click", function () {
 
 clearBtn.addEventListener("click", function () {
   scoreList.textContent = "";
+  scoresArray = [];
+  localArray = [];
 });
