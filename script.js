@@ -243,18 +243,48 @@ submitbtn.addEventListener("click", function () {
 function showScore() {
   scoreList.textContent = "";
   localArray = [];
+
   for (var i = 0; i < scoresArray.length; i++) {
-    var scoresOrder = scoresArray[i];
-    var li = document.createElement("li");
-    li.textContent =
-      `${i + 1}` + ". " + scoresOrder + " - " + `${finalScorearray[i]}`;
-    localArray.push(
-      `${i + 1}` + ". " + scoresOrder + " - " + `${finalScorearray[i]}`
-    );
-    localStorage.removeItem("listArray");
-    localStorage.setItem("listArray", JSON.stringify(localArray));
-    li.setAttribute("data-index", i);
-    scoreList.appendChild(li);
+    if (localStorage.getItem("listArray") !== null) {
+      scoreList.textContent = "";
+      var x = JSON.parse(localStorage.getItem("listArray")).length;
+      console.log(x);
+      for (var p = 0; p < x; p++) {
+        var li = document.createElement("li");
+        var content = JSON.parse(localStorage.getItem("listArray"));
+        console.log(content);
+        li.textContent = content[p];
+        localArray.push(content[p]);
+        scoreList.appendChild(li);
+      }
+      var scoresOrder = scoresArray[0];
+      var li = document.createElement("li");
+      li.textContent =
+        `${x + 1}` + ". " + scoresOrder + " - " + `${scoreCount}`;
+      localArray.push(
+        `${x + 1}` + ". " + scoresOrder + " - " + `${scoreCount}`
+      );
+      localStorage.removeItem("listArray");
+      localStorage.setItem("listArray", JSON.stringify(localArray));
+      li.setAttribute("data-index", i);
+      scoreList.appendChild(li);
+      scoresArray = [];
+      // finalScorearray = [];
+      return;
+    } else {
+      var scoresOrder = scoresArray[i];
+      var li = document.createElement("li");
+      li.textContent =
+        `${i + 1}` + ". " + scoresOrder + " - " + `${finalScorearray[i]}`;
+      localArray.push(
+        `${i + 1}` + ". " + scoresOrder + " - " + `${finalScorearray[i]}`
+      );
+      localStorage.removeItem("listArray");
+      localStorage.setItem("listArray", JSON.stringify(localArray));
+      li.setAttribute("data-index", i);
+      scoreList.appendChild(li);
+      scoresArray = [];
+    }
   }
 }
 
@@ -291,4 +321,5 @@ clearBtn.addEventListener("click", function () {
   scoreList.textContent = "";
   scoresArray = [];
   localArray = [];
+  localStorage.removeItem("listArray");
 });
