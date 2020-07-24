@@ -18,7 +18,6 @@ var displayCong = document.querySelector(".congra");
 
 var scoreCount;
 var scoresArray = [];
-var finalScorearray = [];
 var localArray = [];
 //Questions bank:
 var questions = [
@@ -42,7 +41,6 @@ var random = [
 
 //star button clicked start quiz
 startEl.addEventListener("click", function () {
-  // startEl.style.display = "none";
   queEl.style.display = "block";
   homeinterface.style.display = "none";
   buttonbox.style.display = "block";
@@ -197,14 +195,10 @@ function wrong() {
 function final() {
   scoreCount = timeArray[timeArray.length - 1];
   console.log(scoreCount);
-  finalScorearray.push(scoreCount);
   clearInterval(timerInterval);
-  // timeEl.style.display = "none";
   buttonbox.style.display = "none";
   inputbox.style.display = "block";
   yourScore.textContent = "Your final score is: " + `${scoreCount}`;
-
-  // get time from the setTime check if time is 0 or not
 }
 
 // Score Board to display each question right or wrong
@@ -220,7 +214,7 @@ function scoreBoard(i) {
     // you are wrong
     var li = document.createElement("li");
     li.setAttribute("class", "pointli");
-    li.textContent = "You are wrong!";
+    li.textContent = "You are wrong! -5 sec.";
     point.appendChild(li);
   }
 }
@@ -243,48 +237,38 @@ submitbtn.addEventListener("click", function () {
 function showScore() {
   scoreList.textContent = "";
   localArray = [];
-
-  for (var i = 0; i < scoresArray.length; i++) {
-    if (localStorage.getItem("listArray") !== null) {
-      scoreList.textContent = "";
-      var x = JSON.parse(localStorage.getItem("listArray")).length;
-      console.log(x);
-      for (var p = 0; p < x; p++) {
-        var li = document.createElement("li");
-        var content = JSON.parse(localStorage.getItem("listArray"));
-        console.log(content);
-        li.textContent = content[p];
-        localArray.push(content[p]);
-        scoreList.appendChild(li);
-      }
-      var scoresOrder = scoresArray[0];
+  if (localStorage.getItem("listArray") !== null) {
+    scoreList.textContent = "";
+    var x = JSON.parse(localStorage.getItem("listArray")).length;
+    console.log(x);
+    for (var p = 0; p < x; p++) {
       var li = document.createElement("li");
-      li.textContent =
-        `${x + 1}` + ". " + scoresOrder + " - " + `${scoreCount}`;
-      localArray.push(
-        `${x + 1}` + ". " + scoresOrder + " - " + `${scoreCount}`
-      );
-      localStorage.removeItem("listArray");
-      localStorage.setItem("listArray", JSON.stringify(localArray));
-      li.setAttribute("data-index", i);
+      var content = JSON.parse(localStorage.getItem("listArray"));
+      console.log(content);
+      li.textContent = content[p];
+      localArray.push(content[p]);
       scoreList.appendChild(li);
-      scoresArray = [];
-      // finalScorearray = [];
-      return;
-    } else {
-      var scoresOrder = scoresArray[i];
-      var li = document.createElement("li");
-      li.textContent =
-        `${i + 1}` + ". " + scoresOrder + " - " + `${finalScorearray[i]}`;
-      localArray.push(
-        `${i + 1}` + ". " + scoresOrder + " - " + `${finalScorearray[i]}`
-      );
-      localStorage.removeItem("listArray");
-      localStorage.setItem("listArray", JSON.stringify(localArray));
-      li.setAttribute("data-index", i);
-      scoreList.appendChild(li);
-      scoresArray = [];
     }
+    var scoresOrder = scoresArray[0];
+    var li = document.createElement("li");
+    li.textContent = `${x + 1}` + ". " + scoresOrder + " - " + `${scoreCount}`;
+    localArray.push(`${x + 1}` + ". " + scoresOrder + " - " + `${scoreCount}`);
+    localStorage.removeItem("listArray");
+    localStorage.setItem("listArray", JSON.stringify(localArray));
+
+    scoreList.appendChild(li);
+    scoresArray = [];
+
+    return;
+  } else {
+    var scoresOrder = scoresArray[0];
+    var li = document.createElement("li");
+    li.textContent = "1. " + scoresOrder + " - " + `${scoreCount}`;
+    localArray.push("1. " + scoresOrder + " - " + `${scoreCount}`);
+    localStorage.removeItem("listArray");
+    localStorage.setItem("listArray", JSON.stringify(localArray));
+    scoreList.appendChild(li);
+    scoresArray = [];
   }
 }
 
